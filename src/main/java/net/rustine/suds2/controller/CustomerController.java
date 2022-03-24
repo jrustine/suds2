@@ -81,7 +81,7 @@ public class CustomerController {
 	 * but required for updates. Sample posted JSON:
 	 * 
 	 * {
-	 *  "id" : 3, <-- optional
+	 *	"id" : 3, <-- optional
 	 * 	"firstName": "Frankie",
 	 * 	"lastName": "Miller",
 	 * 	"address": {
