@@ -162,12 +162,19 @@ public class CustomerServiceTest {
 	}
 	
 	@Test
-	public void testGetAllParents() throws Exception {
-		List<Parent> results = customerService.getAllParents();
+	public void testGetAlls() throws Exception {
+		List<Parent> parents = customerService.getAllParents();
 
-		assertNotNull(results);
-		assertTrue(results.size() > 0, "parent list is empty");
-		assertTrue(results.stream().anyMatch(item -> "Allbright".equals(item.getLastName())), "parent list does not contain Allbright");
-		assertTrue(results.stream().anyMatch(item -> "Beckett".equals(item.getLastName())), "parent list does not contain Beckett");
+		assertNotNull(parents);
+		assertTrue(parents.size() > 0, "parent list is empty");
+		assertTrue(parents.stream().anyMatch(item -> "Allbright".equals(item.getLastName())), "parent list does not contain Allbright");
+		assertTrue(parents.stream().anyMatch(item -> "Beckett".equals(item.getLastName())), "parent list does not contain Beckett");
+		
+		List<Pet> pets = customerService.getAllPets();
+		assertNotNull(pets);
+		assertTrue(pets.size() > 0, "pet list is empty");
+		assertTrue(pets.stream().anyMatch(item -> "Buddy".equals(item.getName())), "pet list does not contain Buddy");
+		assertTrue(pets.stream().anyMatch(item -> "Fluffernutter".equals(item.getName())), "pet list does not contain Fluffernutter");
+		assertTrue(pets.stream().anyMatch(item -> "Sparky".equals(item.getName())), "pet list does not contain Sparky");
 	}
 }

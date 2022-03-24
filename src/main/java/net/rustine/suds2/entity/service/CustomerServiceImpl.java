@@ -3,10 +3,13 @@ package net.rustine.suds2.entity.service;
 import java.util.Collections;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import net.rustine.suds2.entity.Parent;
+import net.rustine.suds2.entity.Pet;
 import net.rustine.suds2.entity.repository.ParentRepository;
+import net.rustine.suds2.entity.repository.PetRepository;
 
 /*
  * Copyright (C) 2022 Jay Rustine
@@ -30,6 +33,9 @@ public class CustomerServiceImpl implements CustomerService {
 	@Autowired
 	private ParentRepository parentRepository;
 
+	@Autowired
+	private PetRepository petRepository;
+
 	/**
 	 * Saves out parent object.
 	 * 
@@ -38,6 +44,10 @@ public class CustomerServiceImpl implements CustomerService {
 	 */
 	@Override
 	public Parent saveParent(Parent parent) {
+		
+		// Clean phone number just in case.
+		parent.setPhoneNumber(StringUtils.getDigits(parent.getPhoneNumber()));
+		
 		return parentRepository.save(parent);
 	}
 
@@ -71,6 +81,16 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public List<Parent> getAllParents() {
 		List<Parent> results = parentRepository.findAll();
+		Collections.sort(results);
+		return results;
+	}
+
+	/**
+	 * Returns sorted list of all pets.
+	 */
+	@Override
+	public List<Pet> getAllPets() {
+		List<Pet> results = petRepository.findAll();
 		Collections.sort(results);
 		return results;
 	}

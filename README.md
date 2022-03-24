@@ -1,13 +1,15 @@
 # SUDS2, Sample Java REST application with PostgreSQL And Spring Boot
 
-Another version of the dog grooming application, but this time with a relational database.
+Another version of the dog grooming application, but this time with a relational database and a service layer.
 
 ## Endpoints
 
 | Method | Path | Description |
 |------|-------------------------------|----------------------------------------|
 | GET  | `/customer/`                | Retrieves all customers with their pets |
+| GET  | `/customer/pets`             | Retrieves just pets |
 | GET  | `/customer/{phone number}` | Retrieves single customer |
+| POST | `/customer/`                 | Saves customer with pets |
 
 ## Notes
 
