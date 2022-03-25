@@ -1,4 +1,4 @@
-package net.rustine.suds2.entity.service;
+package net.rustine.suds2.service;
 
 import java.util.Collections;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import net.rustine.suds2.entity.Groomer;
-import net.rustine.suds2.entity.repository.GroomerRepository;
+import net.rustine.suds2.repository.GroomerRepository;
 
 /*
  * Copyright (C) 2022 Jay Rustine

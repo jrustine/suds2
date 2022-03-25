@@ -25,7 +25,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import net.rustine.suds2.Suds2Application;
 import net.rustine.suds2.entity.Parent;
 import net.rustine.suds2.entity.Pet;
-import net.rustine.suds2.entity.service.CustomerService;
+import net.rustine.suds2.service.CustomerService;
 
 /*
  * Copyright (C) 2022 Jay Rustine

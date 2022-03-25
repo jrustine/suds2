@@ -3,10 +3,10 @@ package net.rustine.suds2.spring;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import net.rustine.suds2.entity.service.CustomerService;
-import net.rustine.suds2.entity.service.CustomerServiceImpl;
-import net.rustine.suds2.entity.service.GroomerService;
-import net.rustine.suds2.entity.service.GroomerServiceImpl;
+import net.rustine.suds2.service.CustomerService;
+import net.rustine.suds2.service.CustomerServiceImpl;
+import net.rustine.suds2.service.GroomerService;
+import net.rustine.suds2.service.GroomerServiceImpl;
 
 /*
  * Copyright (C) 2022 Jay Rustine

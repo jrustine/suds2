@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import net.rustine.suds2.controller.exception.MissingRecordException;
 import net.rustine.suds2.entity.Parent;
 import net.rustine.suds2.entity.Pet;
-import net.rustine.suds2.entity.service.CustomerService;
+import net.rustine.suds2.service.CustomerService;
 
 /*
  * Copyright (C) 2022 Jay Rustine

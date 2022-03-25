@@ -1,4 +1,4 @@
-package net.rustine.suds2.entity.service;
+package net.rustine.suds2.service;
 
 import java.util.Collections;
 import java.util.List;
@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import net.rustine.suds2.entity.Parent;
 import net.rustine.suds2.entity.Pet;
-import net.rustine.suds2.entity.repository.ParentRepository;
-import net.rustine.suds2.entity.repository.PetRepository;
+import net.rustine.suds2.repository.ParentRepository;
+import net.rustine.suds2.repository.PetRepository;
 
 /*
  * Copyright (C) 2022 Jay Rustine

@@ -1,4 +1,4 @@
-package net.rustine.suds2.entity.service;
+package net.rustine.suds2.service;
 
 import java.util.List;
 

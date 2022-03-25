@@ -1,4 +1,4 @@
-package net.rustine.suds2.entity.repository;
+package net.rustine.suds2.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

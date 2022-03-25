@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import net.rustine.suds2.controller.exception.MissingRecordException;
 import net.rustine.suds2.entity.Groomer;
-import net.rustine.suds2.entity.service.GroomerService;
+import net.rustine.suds2.service.GroomerService;
 
 /*
  * Copyright (C) 2022 Jay Rustine
