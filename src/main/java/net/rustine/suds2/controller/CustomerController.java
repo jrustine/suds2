@@ -77,11 +77,11 @@ public class CustomerController {
 	}
 
 	/**
-	 * Saves out a customer, the id field is optional for new customers,
+	 * Saves out a customer, the id field is not populated for new customers,
 	 * but required for updates. Sample posted JSON:
 	 * 
 	 * {
-	 *	"id" : 3, <-- optional
+	 *	"id" : 3, <-- only required for updates
 	 * 	"firstName": "Frankie",
 	 * 	"lastName": "Miller",
 	 * 	"address": {

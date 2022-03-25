@@ -2,8 +2,7 @@ package net.rustine.suds2.entity.service;
 
 import java.util.List;
 
-import net.rustine.suds2.entity.Parent;
-import net.rustine.suds2.entity.Pet;
+import net.rustine.suds2.entity.Groomer;
 
 /*
  * Copyright (C) 2022 Jay Rustine
@@ -20,14 +19,12 @@ import net.rustine.suds2.entity.Pet;
  * See the License for the specific language governing permissions and 
  * limitations under the License.
  * 
- * Interface for the customer data service.
+ * Interface for the groomer data service.
  */
-public interface CustomerService {
+public interface GroomerService {
 
-	public Parent saveParent(Parent parent);
-	public Parent getParentById(Integer id);
-	public Parent getParentByPhoneNumber(String phoneNumber);
-	public List<Parent> getAllParents();
-	
-	public List<Pet> getAllPets();
+	public Groomer saveGroomer(Groomer groomer);
+	public Groomer getGroomerById(Integer id);
+	public Groomer getGroomerByEmployeeNumber(String employeeNumber);
+	public List<Groomer> getAllGroomers();
 }

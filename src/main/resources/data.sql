@@ -24,3 +24,30 @@ INSERT INTO suds.pet(parent_id, name, notes, type)
 	'Betty',
 	'Loves belly rubs, who doesn''t?',
 	'Dog');
+
+INSERT INTO suds.groomer(employee_number, first_name, last_name, home_phone_number)
+	VALUES ('SUDS100',
+	'Linda',
+	'Morgan',
+	'(222) 333-4444');
+
+INSERT INTO suds.work_schedule(groomer_id, week_day, start_time, end_time)
+	VALUES
+	((SELECT MAX(id) FROM suds.groomer), 0, '08:00', '17:00'),
+	((SELECT MAX(id) FROM suds.groomer), 1, '08:00', '17:00'),
+	((SELECT MAX(id) FROM suds.groomer), 2, '08:00', '17:00'),
+	((SELECT MAX(id) FROM suds.groomer), 4, '08:00', '17:00'),
+	((SELECT MAX(id) FROM suds.groomer), 5, '10:00', '13:00');
+	
+INSERT INTO suds.groomer(employee_number, first_name, last_name, home_phone_number)
+	VALUES ('SUDS200',
+	'Georgia',
+	'Adamson',
+	'(123) 555-7878');
+
+INSERT INTO suds.work_schedule(groomer_id, week_day, start_time, end_time)
+	VALUES
+	((SELECT MAX(id) FROM suds.groomer), 1, '09:00', '18:00'),
+	((SELECT MAX(id) FROM suds.groomer), 2, '09:00', '18:00'),
+	((SELECT MAX(id) FROM suds.groomer), 4, '09:00', '18:00'),
+	((SELECT MAX(id) FROM suds.groomer), 5, '10:00', '13:00');

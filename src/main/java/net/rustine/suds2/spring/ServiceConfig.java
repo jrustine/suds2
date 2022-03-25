@@ -5,6 +5,8 @@ import org.springframework.context.annotation.Configuration;
 
 import net.rustine.suds2.entity.service.CustomerService;
 import net.rustine.suds2.entity.service.CustomerServiceImpl;
+import net.rustine.suds2.entity.service.GroomerService;
+import net.rustine.suds2.entity.service.GroomerServiceImpl;
 
 /*
  * Copyright (C) 2022 Jay Rustine
@@ -30,5 +32,11 @@ public class ServiceConfig {
 	public CustomerService customerService() {
 		CustomerServiceImpl customerService = new CustomerServiceImpl();
 		return customerService;
+	}
+	
+	@Bean
+	public GroomerService groomerService() {
+		GroomerServiceImpl groomerService = new GroomerServiceImpl();
+		return groomerService;
 	}
 }

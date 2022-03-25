@@ -10,7 +10,10 @@ Another version of the dog grooming application, but this time with a relational
 | GET  | `/customer/pets`             | Retrieves just pets |
 | GET  | `/customer/{phone number}` | Retrieves single customer |
 | POST | `/customer/`                 | Saves customer with pets |
+| GET  | `/groomer/`                    | Retrieves all groomers |
+| GET  | `/groomer/{employee number}` | Retrieves single groomer |
+| POST | `/groomer/`                    | Saves groomer |
 
 ## Notes
 
-* Left the address in a JSON field, would probably break this into its own table or fields in the main one.
+* Left the customer address in a JSON field, would probably break this into its own table or fields in the main one.

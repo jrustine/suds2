@@ -66,30 +66,30 @@ public class CustomerServiceTest {
 		address.put("state", "MD");
 		address.put("zipCode", "21213");
 
-		parent = new Parent();
-		parent.setFirstName("Ariana");
-		parent.setLastName("Allbright");
-		parent.setPhoneNumber(PHONE1);
-		parent.setAddress(address);
+		Parent newParent = new Parent();
+		newParent.setFirstName("Ariana");
+		newParent.setLastName("Allbright");
+		newParent.setPhoneNumber(PHONE1);
+		newParent.setAddress(address);
 
 		Set<Pet> pets = new HashSet<Pet>();
 		Pet pet = new Pet();
-		pet.setParent(parent);
+		pet.setParent(newParent);
 		pet.setName("Buddy");
 		pet.setType("Dog");
 		pet.setNotes("A little bitey in the harness.");
 		pets.add(pet);
 		
 		Pet anotherPet = new Pet();
-		anotherPet.setParent(parent);
+		anotherPet.setParent(newParent);
 		anotherPet.setName("Fluffernutter");
 		anotherPet.setType("Dog");
 		anotherPet.setNotes("Likes peanut butter treats.");
 		pets.add(anotherPet);
 		
-		parent.setPets(pets);
+		newParent.setPets(pets);
 		
-		customerService.saveParent(parent);
+		parent = customerService.saveParent(newParent);
 		
 		Map<String,String> anotherAddress = new HashMap<String,String>();
 		anotherAddress.put("street", "123 Main Street");
@@ -97,23 +97,23 @@ public class CustomerServiceTest {
 		anotherAddress.put("state", "MD");
 		anotherAddress.put("zipCode", "21114");
 
-		anotherParent = new Parent();
-		anotherParent.setFirstName("Sam");
-		anotherParent.setLastName("Beckett");
-		anotherParent.setPhoneNumber(PHONE2);
-		anotherParent.setAddress(anotherAddress);
+		Parent anotherNewParent = new Parent();
+		anotherNewParent.setFirstName("Sam");
+		anotherNewParent.setLastName("Beckett");
+		anotherNewParent.setPhoneNumber(PHONE2);
+		anotherNewParent.setAddress(anotherAddress);
 		
 		Set<Pet> anotherPets = new HashSet<Pet>();
 		Pet yetAnotherPet = new Pet();
-		yetAnotherPet.setParent(anotherParent);
+		yetAnotherPet.setParent(anotherNewParent);
 		yetAnotherPet.setName("Sparky");
 		yetAnotherPet.setType("Cat");
 		yetAnotherPet.setNotes("So mean, why are we washing cats?");
 		anotherPets.add(yetAnotherPet);
 		
-		anotherParent.setPets(anotherPets);
+		anotherNewParent.setPets(anotherPets);
 
-		customerService.saveParent(anotherParent);
+		anotherParent = customerService.saveParent(anotherNewParent);
 	}
 	
 	@Test
