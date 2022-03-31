@@ -25,7 +25,6 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import net.rustine.suds2.Suds2Application;
 import net.rustine.suds2.entity.Groomer;
 import net.rustine.suds2.entity.WorkSchedule;
-import net.rustine.suds2.service.GroomerService;
 
 /*
  * Copyright (C) 2022 Jay Rustine

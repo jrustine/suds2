@@ -7,6 +7,8 @@ import net.rustine.suds2.service.CustomerService;
 import net.rustine.suds2.service.CustomerServiceImpl;
 import net.rustine.suds2.service.GroomerService;
 import net.rustine.suds2.service.GroomerServiceImpl;
+import net.rustine.suds2.service.ScheduleService;
+import net.rustine.suds2.service.ScheduleServiceImpl;
 
 /*
  * Copyright (C) 2022 Jay Rustine
@@ -38,5 +40,11 @@ public class ServiceConfig {
 	public GroomerService groomerService() {
 		GroomerServiceImpl groomerService = new GroomerServiceImpl();
 		return groomerService;
+	}
+	
+	@Bean
+	public ScheduleService scheduleService() {
+		ScheduleServiceImpl scheduleService = new ScheduleServiceImpl();
+		return scheduleService;
 	}
 }

@@ -14,6 +14,8 @@ import javax.persistence.Table;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 /*
  * Copyright (C) 2022 Jay Rustine
@@ -32,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
  */
 @Entity
 @Table(name="pet")
+@JsonInclude(Include.NON_NULL)
 public class Pet implements Comparable<Pet> {
 
 	@Id

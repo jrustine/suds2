@@ -1,10 +1,9 @@
 package net.rustine.suds2.entity;
 
-import java.time.DayOfWeek;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
+import java.util.Comparator;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,9 +13,7 @@ import javax.persistence.Table;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 /*
  * Copyright (C) 2022 Jay Rustine
@@ -34,32 +31,29 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
  * limitations under the License.
  */
 @Entity
-@Table(name="work_schedule")
-@JsonInclude(Include.NON_NULL)
-public class WorkSchedule {
+@Table(name="schedule")
+public class Schedule implements Comparable<Schedule> {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="groomer_id", nullable=false)
-	@JsonBackReference
+
+	private LocalDateTime appointmentTime;
+
+	@ManyToOne
+	@JoinColumn(name="groomer_id")
+	@JsonManagedReference
 	private Groomer groomer;
 
-	private DayOfWeek weekDay;
-	private LocalTime startTime;
-	private LocalTime endTime;
-	
-	public WorkSchedule() { }
+	@ManyToOne
+	@JoinColumn(name="parent_id")
+	@JsonManagedReference
+	private Parent parent;
 
-	public WorkSchedule(Groomer groomer, DayOfWeek weekDay, LocalTime startTime, LocalTime endTime) {
-		super();
-		this.groomer = groomer;
-		this.weekDay = weekDay;
-		this.startTime = startTime;
-		this.endTime = endTime;
-	}
+	@ManyToOne
+	@JoinColumn(name="pet_id")
+	@JsonManagedReference
+	private Pet pet;
 
 	public Integer getId() {
 		return id;
@@ -67,6 +61,14 @@ public class WorkSchedule {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public LocalDateTime getAppointmentTime() {
+		return appointmentTime;
+	}
+
+	public void setAppointmentTime(LocalDateTime appointmentTime) {
+		this.appointmentTime = appointmentTime;
 	}
 
 	public Groomer getGroomer() {
@@ -77,28 +79,29 @@ public class WorkSchedule {
 		this.groomer = groomer;
 	}
 
-	public DayOfWeek getWeekDay() {
-		return weekDay;
+	public Parent getParent() {
+		return parent;
 	}
 
-	public void setWeekDay(DayOfWeek weekDay) {
-		this.weekDay = weekDay;
+	public void setParent(Parent parent) {
+		this.parent = parent;
 	}
 
-	public LocalTime getStartTime() {
-		return startTime;
+	public Pet getPet() {
+		return pet;
 	}
 
-	public void setStartTime(LocalTime startTime) {
-		this.startTime = startTime;
+	public void setPet(Pet pet) {
+		this.pet = pet;
 	}
 
-	public LocalTime getEndTime() {
-		return endTime;
-	}
-
-	public void setEndTime(LocalTime endTime) {
-		this.endTime = endTime;
+	/**
+	 * Sort Schedules by appointment time.
+	 */
+	@Override
+	public int compareTo(Schedule schedule0) {
+	    return Comparator.comparing(Schedule::getAppointmentTime)
+	              .compare(this, schedule0);
 	}
 
 	public String toString() {

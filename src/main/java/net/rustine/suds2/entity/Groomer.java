@@ -14,6 +14,8 @@ import javax.persistence.Table;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 /*
@@ -33,6 +35,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
  */
 @Entity
 @Table(name="groomer")
+@JsonInclude(Include.NON_NULL)
 public class Groomer implements Comparable<Groomer> {
 
 	@Id

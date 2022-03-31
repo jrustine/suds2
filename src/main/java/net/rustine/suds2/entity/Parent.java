@@ -17,7 +17,9 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 
 /*
@@ -38,6 +40,7 @@ import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 @Entity
 @Table(name="parent")
 @TypeDef(name="jsonb", typeClass=JsonBinaryType.class)
+@JsonInclude(Include.NON_NULL)
 public class Parent implements Comparable<Parent> {
 
 	@Id

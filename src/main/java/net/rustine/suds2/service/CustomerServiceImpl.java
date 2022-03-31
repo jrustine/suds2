@@ -70,7 +70,9 @@ public class CustomerServiceImpl implements CustomerService {
 	 */
 	@Override
 	public Parent getParentByPhoneNumber(String phoneNumber) {
-		return parentRepository.getByPhoneNumber(phoneNumber);
+		
+		// Clean phone number just in case.
+		return parentRepository.getByPhoneNumber(StringUtils.getDigits(phoneNumber));
 	}
 
 	/**
